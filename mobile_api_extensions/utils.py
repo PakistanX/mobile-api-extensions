@@ -127,4 +127,4 @@ def build_mobile_auth_url(base_url, authorization_code, status):
     """Builds a mobile authentication URL by appending AuthorizationCode and Status parameters."""
 
     separator = '&' if '?' in base_url else '?'
-    return f"{base_url}{separator}AuthorizationCode={authorization_code}&Status={status}"
+    return "{}{}AuthorizationCode={}&Status={}".format(base_url, separator, authorization_code, status)

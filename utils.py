@@ -26,7 +26,7 @@ def check_version(tag_name):
         version = None
 
     if not (version and version == tag_name):
-        print(f"Package version {version} is not coresponded to the provided tag {tag_name}")
+        print("Package version {} is not coresponded to the provided tag {}".format(version, tag_name))
         exit(1)
 
 

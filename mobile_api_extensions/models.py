@@ -41,7 +41,7 @@ class MobileUserAuth(models.Model):
             except IntegrityError:
                 # Violated uniqueness constraint.
                 # It's quite improbable to run into this case: https://stackoverflow.com/a/1155027
-                log.info(f"Generated duplicate authorization_code {token} for user {self.user.id}. Re-generating.")
+                log.info("Generated duplicate authorization_code {} for user {}. Re-generating.".format(token, self.user.id))
                 return self.set_authorization_code()
 
         return self.authorization_code

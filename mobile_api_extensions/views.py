@@ -70,7 +70,7 @@ def _send_activation_email(user, request):
     try:
         profile = UserProfile.objects.get(user=user)
     except UserProfile.DoesNotExist:
-        log.exception(f'Could not find UserProfile for {user}')
+        log.exception('Could not find UserProfile for {}'.format(user))
     else:
         activated = user_is_active(user)
         running_pipeline = pipeline.get(request)
@@ -133,7 +133,7 @@ def mobile_do_complete(backend, login, user=None, redirect_name='next',  # pylin
 
 
 @csrf_exempt
-@psa(f'{URL_NAMESPACE}:complete')
+@psa('{}:complete'.format(URL_NAMESPACE))
 def complete_mobile(request, backend, *args, **kwargs):
     """
     Complete authentication social django view override.
@@ -152,7 +152,7 @@ def complete_mobile(request, backend, *args, **kwargs):
                             *args, **kwargs)
 
 
-@psa(f'{URL_NAMESPACE}:complete')
+@psa('{}:complete'.format(URL_NAMESPACE))
 def auth_mobile(request, backend):
     """
     Login authentication social django view override.
