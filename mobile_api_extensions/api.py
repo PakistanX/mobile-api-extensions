@@ -1,7 +1,7 @@
 """
 Views for user API
 """
-from common.djangoapps.student.models import CourseEnrollment
+from student.models import CourseEnrollment
 from django.contrib.auth import get_user_model
 from django.core.exceptions import ValidationError
 from edx_rest_framework_extensions.auth.jwt.authentication import JwtAuthentication
